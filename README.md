@@ -1,4 +1,4 @@
-# Chat-space
+  # Chat-space
 
 ## DB作成
 
@@ -6,8 +6,6 @@
 | column     | type        |  null    | unique|            
 |:-----------|------------:|:--------:|:-----:|
 |name        |string       |false     |true   |
-|email       |string       |false     |true   |
-|password    |string       |false     |       |
 
 * index
    
@@ -25,7 +23,7 @@
 ### groups table
 | column     | type        |   null       |
 |:-----------|------------:|:------------:|
-| name       |   string    |  fasle       |
+| name       |   string    |  false       |
 
 * アソシエーション
   
@@ -56,7 +54,7 @@
 ### group_users
 | column     | type        |  null        |
 |:-----------|------------:|:------------:|
-| user_id    |  references |  fasle       |
+| user_id    |  references |  false       |
 | group_id   |  references |  false       |
 
 
