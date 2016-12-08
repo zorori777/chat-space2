@@ -1,11 +1,17 @@
-
 # Chat-space
 
 ## DB作成
 
-### users table(gem devise使用)
-| column     | type        |             
-|:-----------|------------:|
+### users table
+| column     | type        |  null    | unique|            
+|:-----------|------------:|:--------:|:-----:|
+|name        |string       |false     |true   |
+|email       |string       |false     |true   |
+|password    |string       |false     |       |
+
+* index
+   
+  name
 
 * アソシエーション
   
@@ -13,35 +19,31 @@
   
   has_many :groups, through: :group＿users
   
-  belongs＿to :groups＿users
+  has_many :groups＿users
 
 
 ### groups table
-| column     | type        |              |
+| column     | type        |   null       |
 |:-----------|------------:|:------------:|
-| name       |   string    |  null:fasle  |
-
+| name       |   string    |  fasle       |
 
 * アソシエーション
   
   has＿many :users, through: :group__users
   
-  belongs_to :group＿users
+  has_many :groups＿users
   
-  has_many :messages
+  has_many  :messages
 
 
 ### messages table
-| column     | type         |              |
+| column     | type         |    null      |
 |:-----------|-------------:|:------------:|
 | image      |    string    |              |
 | body       |    text      |              |
-| user_id    |    references|  null:false  |
-| group_id   |    references|  null:false  |
+| user_id    |    references|  false       |
+| group_id   |    references|  false       |
 
-* index
- 
-  user_id  
 
 
 * アソシエーション
@@ -52,18 +54,18 @@
 
 
 ### group_users
-| column     | type        |              |
+| column     | type        |  null        |
 |:-----------|------------:|:------------:|
-| user_id    |  references |  null:fasle  |
-| group_id   |  references |  null:false  |
+| user_id    |  references |  fasle       |
+| group_id   |  references |  false       |
 
 
 
 * アソシエーション
   
-  has_many :user
+  belongs_to :user
   
-  has_many :group
+  belongs_to :group
 
 
 
