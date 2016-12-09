@@ -51,7 +51,7 @@
   belongs_to :group
 
 
-### group_users
+### group_users table
 | column     | type        |  null        |
 |:-----------|------------:|:------------:|
 | user_id    |  references |  false       |
