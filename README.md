@@ -17,7 +17,7 @@
   
   has_many :groups, through: :group＿users
   
-  has_many :groups＿users
+  has_many :group＿users
 
 
 ### groups table
@@ -29,7 +29,7 @@
   
   has＿many :users, through: :group__users
   
-  has_many :groups＿users
+  has_many :group＿users
   
   has_many  :messages
 
