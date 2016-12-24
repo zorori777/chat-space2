@@ -1,0 +1,51 @@
+.chat
+  .chat-side
+    .chat-side-user
+      .chat-side-user-left
+        %h2 takumi
+      .chat-side-user-right
+        %i.fa.fa-pencil-square-o
+        %i.fa.fa-cog
+
+      .chat-side-user-right2
+        %i.fa.pencil-square-o
+    .chat-side-group
+      %p チーム
+      %ul
+        %li
+          %p.chat-side-group__name gogo
+          %p.chat-side-group__message ようこそ
+        %li
+          %p.chat-side-group__name yari
+          %p.chat-side-group__message mama
+        %li
+          %p.chat-side-group__name papa
+          %p.chat-side-group__message tasukete
+  .chat-main
+    .chat-header
+      .chat-header--left
+        %p.chat-header--left__name takumi
+        %p.chat-header--left__member Members:takumi
+      .chat-header--right
+        %a.chat-header--right__edit Edit
+
+    .chat-main-message
+      %ul
+        %li
+          .chat-main-message-title
+            %p.chat-main-message-title__name takumi
+            %p.chat-main-message-title__time 2016/11/26 20:31:35
+          %p.chat-main-message__message !!!!
+        %li
+          .chat-main-message-title
+            %p.chat-main-message-title__name kai
+            %p.chat-main-message-title__time 2016
+          %p.chat-main-message__message ???
+
+    .chat-footer-input
+      .chat-footer-input__left
+        %textarea{placeholder:"Type a message"}
+      .chat-footer-input__center
+        %i.fa.fa-image
+      .chat-footer-input__right
+        %input{type:"submit" ,placeholder: "type a text",value: "send"}
