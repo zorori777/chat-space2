@@ -5,10 +5,9 @@
         %h2 takumi
       .chat-side-user-right
         %i.fa.fa-pencil-square-o
-        %i.fa.fa-cog
+        = link_to edit_user_path(current_user), class: "chat-side-user-right" do
+          %i.fa.fa-cog
 
-      .chat-side-user-right2
-        %i.fa.pencil-square-o
     .chat-side-group
       %p チーム
       %ul
