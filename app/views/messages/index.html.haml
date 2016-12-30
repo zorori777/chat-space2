@@ -2,7 +2,7 @@
   .chat-side
     .chat-side-user
       .chat-side-user-left
-        %h2 takumi
+        %h2= current_user.name
       .chat-side-user-right
         %i.fa.fa-pencil-square-o
         = link_to edit_user_path(current_user), class: "chat-side-user-right" do
