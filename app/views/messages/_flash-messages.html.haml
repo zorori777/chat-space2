@@ -1,4 +1,4 @@
-.flash-messsages
-  %p.flash-message__notice
-
-  %p.flash-message__alert
+.flash-message
+  -flash.each do |key, value|
+    %div{ class: "alert alert-#{key}" }
+      = value

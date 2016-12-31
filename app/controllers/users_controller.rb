@@ -8,7 +8,8 @@ class UsersController < ApplicationController
       if current_user.update_with_password(update_params)
          redirect_to root_path,notice: '編集成功しました'
       else
-        redirect_to edit_user_path,alert: '編集失敗しました'
+        flash.now[:alert] = "編集を失敗しました"
+        render :edit
       end
   end
 
@@ -19,6 +20,6 @@ class UsersController < ApplicationController
     end
 
     def user_setting
-      @user =User.find(params[:id])
+      @user = User.find(params[:id])
     end
 end
