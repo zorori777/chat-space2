@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def update
-      if current_user.update_with_password(update_params)
+      if @user.update_with_password(update_params)
          redirect_to root_path,notice: '編集成功しました'
       else
         flash.now[:alert] = "編集を失敗しました"
