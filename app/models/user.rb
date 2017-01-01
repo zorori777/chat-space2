@@ -1,11 +1,13 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
+
+validates :name, presence: true
+
+
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
- has_many :groups,through: :group_users
- has_many :group_users
- has_many :messages
-
-
+  has_many :messages
+  has_many :group_users
+  has_many :groups, through: :group_users
 end
