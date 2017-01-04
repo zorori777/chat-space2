@@ -20,10 +20,6 @@ class GroupsController < ApplicationController
 
 
 private
-  def setting_group
-    @group = Group.find(params[:id])
-  end
-
 
   def create_params
     params.require(:group).permit(:name)
