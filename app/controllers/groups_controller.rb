@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
 
-  before_action :setting_group,except: [:new,:create]
   def new
     @group = Group.new
   end
