@@ -1,10 +1,9 @@
 class MessagesController < ApplicationController
 
-  before_action :setting_group
+  before_action :setting_group,only: [:index]
 
 def index
 end
-
 
 private
   def setting_group
