@@ -16,6 +16,7 @@
   h2 {
     letter-spacing: 2px;
     font-size: 17px;
+    color: white;
   }
 }
 
@@ -32,12 +33,17 @@
   padding: 20px 0 20px 20px;
   background-color:#2f3e51;
   height: calc(100vh - 134px);
+    p{
+      color:white;
+    }
   &__name {
     font-size: 15px;
     padding-bottom: 5px;
     padding-top: 40px;
+    color: white;
   }
   &__message {
     font-size: 11px;
+    color: white;
   }
 }

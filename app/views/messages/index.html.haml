@@ -1,33 +1,13 @@
-.chat
-  .chat-side
-    .chat-side-user
-      .chat-side-user-left
-        %h2= current_user.name
-      .chat-side-user-right
-        %i.fa.fa-pencil-square-o
-        = link_to edit_user_path(current_user), class: "chat-side-user-right" do
-          %i.fa.fa-cog
-
-    .chat-side-group
-      %p チーム
-      %ul
-        %li
-          %p.chat-side-group__name gogo
-          %p.chat-side-group__message ようこそ
-        %li
-          %p.chat-side-group__name yari
-          %p.chat-side-group__message mama
-        %li
-          %p.chat-side-group__name papa
-          %p.chat-side-group__message tasukete
+.chatmain
+  = render partial:'groups/chatside', locals: { groups: @groups }
   .chat-main
     .chat-header
       .chat-header--left
-        %p.chat-header--left__name takumi
+        %p.chat-header--left__name
+          %h2= @group.name
         %p.chat-header--left__member Members:takumi
       .chat-header--right
-        %a.chat-header--right__edit Edit
-
+        = link_to 'Edit', edit_group_path(@group)
     .chat-main-message
       %ul
         %li

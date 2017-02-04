@@ -1,5 +1,10 @@
 class GroupsController < ApplicationController
 
+before_action :setting_group,only: [:edit,:update]
+  def index
+  end
+
+
   def new
     @group = Group.new
   end
@@ -7,7 +12,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(create_params)
       if @group.save
-         redirect_to root_path(@group),notice: '作成を成功しました'
+         redirect_to group_messages_path(@group),notice: '作成を成功しました'
       else
         flash.now[:alert] = "作成を失敗しました"
         render :new
@@ -17,11 +22,24 @@ class GroupsController < ApplicationController
   def edit
   end
 
+  def update
+    if @group.update(create_params)
+      redirect_to group_messages_path(@group),notice: '編集を成功しました'
+    else
+      flash.now[:alert] = "編集を失敗しました"
+        render :edit
+    end
+  end
+
 
 private
 
   def create_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name,:group_id)
+  end
+
+  def setting_group
+    @group = Group.find(params[:id])
   end
 
 end
