@@ -5,7 +5,11 @@
       .chat-header--left
         %p.chat-header--left__name
           %h2= @group.name
-        %p.chat-header--left__member Members:takumi
+        %p.chat-header--left__member
+          Members:
+          - @group.users.each do |user|
+            %span.chat-header--left__member
+              = user.name
       .chat-header--right
         = link_to 'Edit', edit_group_path(@group)
     .chat-main-message
@@ -14,13 +18,7 @@
           .chat-main-message-title
             %p.chat-main-message-title__name takumi
             %p.chat-main-message-title__time 2016/11/26 20:31:35
-          %p.chat-main-message__message !!!!
-        %li
-          .chat-main-message-title
-            %p.chat-main-message-title__name kai
-            %p.chat-main-message-title__time 2016
-          %p.chat-main-message__message ???
-
+          %p.chat-main-message__message !!!
     .chat-footer-input
       .chat-footer-input__left
         %textarea{placeholder:"Type a message"}

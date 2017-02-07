@@ -1,12 +1,14 @@
 class GroupsController < ApplicationController
 
-before_action :setting_group,only: [:edit,:update]
+before_action :setting_group, only: [:edit,:update]
   def index
+    @groups = Group.all
   end
 
 
   def new
     @group = Group.new
+    @group.users << current_user
   end
 
   def create
@@ -24,7 +26,7 @@ before_action :setting_group,only: [:edit,:update]
 
   def update
     if @group.update(create_params)
-      redirect_to group_messages_path(@group),notice: '編集を成功しました'
+      redirect_to group_messages_path(@group), notice: '編集を成功しました'
     else
       flash.now[:alert] = "編集を失敗しました"
         render :edit
@@ -35,7 +37,7 @@ before_action :setting_group,only: [:edit,:update]
 private
 
   def create_params
-    params.require(:group).permit(:name,:group_id)
+    params.require(:group).permit(:name, user_ids:[])
   end
 
   def setting_group

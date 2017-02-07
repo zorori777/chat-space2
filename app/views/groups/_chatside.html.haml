@@ -7,15 +7,10 @@
         %i.fa.fa-cog
       = link_to new_group_path(@group),class: "chat-side-user-right" do
         %i.fa.fa-pencil-square-o
-  .chat-side-group
+  %ul.chat-side-group
     %p チーム
-    %ul
-      %li
-        %p.chat-side-group__name gogo
-        %p.chat-side-group__message ようこそ
-      %li
-        %p.chat-side-group__name yari
-        %p.chat-side-group__message mama
-      %li
-        %p.chat-side-group__name papa
-        %p.chat-side-group__message tasukete
+    - @groups.each do |group|
+      %li.chat-group
+        %p.chat-group__name
+          = group.name
+        %p.chat-group__message ようこそ
