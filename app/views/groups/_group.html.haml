@@ -1,4 +1,5 @@
-%li.chat-group
-  %p.chat-group__name
-    = @group.name
-  %p.chat-group__message ようこそ
+- @groups.each do |group|
+  %li.chat-group
+    %p.chat-group__name
+      = group.name
+    %p.chat-group__message ようこそ
