@@ -7,7 +7,7 @@
           %h2= @group.name
         %p.chat-header--left__member
           Members:
-          = User.pluck(:name).join(", ")
+          = @group.users.pluck(:name).join(",  ")
       .chat-header--right
         = link_to 'Edit', edit_group_path(@group)
     .chat-main-message

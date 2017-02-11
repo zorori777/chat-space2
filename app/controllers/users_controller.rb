@@ -5,16 +5,17 @@ class UsersController < ApplicationController
   end
 
   def update
-      if @user.update_with_password(update_params)
-         redirect_to root_path,notice: '編集成功しました'
-      else
-        flash.now[:alert] = "編集を失敗しました"
-        render :edit
-      end
+    if @user.update_with_password(update_params)
+       redirect_to root_path,notice: '編集成功しました'
+    else
+      flash.now[:alert] = "編集を失敗しました"
+      render :edit
+    end
   end
 
 
   private
+
     def update_params
       params.require(:user).permit(:name, :email,:password, :current_password, :password_comfirmation)
     end
