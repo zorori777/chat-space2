@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :user_setting
+
   def edit
   end
 
