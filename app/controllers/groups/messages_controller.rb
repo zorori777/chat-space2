@@ -7,9 +7,9 @@ class Groups::MessagesController < GroupsController
 
   private
 
-    def setting_group
-     @groups = current_user.groups
-     @group = Group.find(params[:group_id])
-    end
+  def setting_group
+   @groups = current_user.groups
+   @group = Group.find(params[:group_id])
+  end
 
 end
