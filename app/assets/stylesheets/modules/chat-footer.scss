@@ -1,11 +1,11 @@
 .chat-footer-input {
   position: relative;
-  left: -97px;
+  left: 0;
   bottom: 0;
   padding: 20px 40px;
   background-color: #ddd;
   height: 50px;
-  float: right;
+
   &__left {
     border: none;
   }
@@ -16,14 +16,14 @@
     line-height: 50px;
     padding-right: 10px;
     position: absolute;
-    left: 885px;
+    left: 965px;
     top: 20px;
     margin-right: 10px
   }
 
   &__right {
     position: absolute;
-    left: 127px;
+    left: 792px;
     top: 45px;
   }
 
@@ -42,13 +42,13 @@
   }
 
   input {
-    color: $whitest;
+    color: white;
     background-color: #38AEF0;
     height: 50px;
     border: none;
     width: 84px;
     position: absolute;
-    left: 791px;
+    left: 234px;
     top: -25px;
   }
 }
