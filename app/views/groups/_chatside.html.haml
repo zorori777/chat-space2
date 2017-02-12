@@ -8,5 +8,4 @@
       = link_to new_group_path(@group), class: "chat-side-user-right" do
         %i.fa.fa-pencil-square-o
   %ul.chat-side-group
-    %p チーム
-    = render 'group'
+    = render @groups
