@@ -1,5 +1,5 @@
 .chatmain
-  = render 'chatside', group: @groups
+  = render 'chatside', locals: { group: @groups }
   .chat-header
     .chat-header--left
       %p.chat-header--left__name
