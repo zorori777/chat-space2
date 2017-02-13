@@ -1,0 +1,25 @@
+.chatmain
+  = render 'chatside', locals: { group: @groups }
+  .chat-header
+    .chat-header--left
+      %p.chat-header--left__name
+        = @group.name
+      %p.chat-header--left__member
+        Members:
+        = @group.users.pluck(:name).join(",  ")
+    .chat-header--right
+      = link_to 'Edit', edit_group_path(@group)
+  .chat-main-message
+    %ul
+      %li
+        .chat-main-message-title
+          %p.chat-main-message-title__name takumi
+          %p.chat-main-message-title__time 2016/11/26 20:31:35
+        %p.chat-main-message__message !!!
+  .chat-footer-input
+    .chat-footer-input__left
+      %textarea{ placeholder:"Type a message" }
+    .chat-footer-input__center
+      %i.fa.fa-image
+    .chat-footer-input__right
+      %input{ type:"submit" , placeholder: "type a text", value: "send" }
