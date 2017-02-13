@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'groups#index'
-  resources :groups, only: %i(new create edit update) do
+  resources :groups, except: %i( destroy ) do
     scope module: 'groups' do
       resources :messages, only: %i( index )
     end
