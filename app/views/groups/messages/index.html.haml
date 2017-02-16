@@ -1,5 +1,5 @@
 .chatmain
-  = render 'chatside', locals: { group: @groups }
+  = render partial:'chatside', locals: { groups: @groups }
   .chat-header
     .chat-header--left
       %p.chat-header--left__name
@@ -10,16 +10,18 @@
     .chat-header--right
       = link_to 'Edit', edit_group_path(@group)
   .chat-main-message
-    %ul
-      %li
-        .chat-main-message-title
-          %p.chat-main-message-title__name takumi
-          %p.chat-main-message-title__time 2016/11/26 20:31:35
-        %p.chat-main-message__message !!!
+    =render @messages
   .chat-footer-input
+  = form_for [ @group, @message ] do |f|
     .chat-footer-input__left
-      %textarea{ placeholder:"Type a message" }
+      = f.text_area :body, placefolder: "Type a message"
     .chat-footer-input__center
       %i.fa.fa-image
     .chat-footer-input__right
-      %input{ type:"submit" , placeholder: "type a text", value: "send" }
+      = f.submit value: "Send", name: "commit", disable: "save"
+
+    /   %textarea{ placeholder:"Type a message" }
+
+    /   %i.fa.fa-image
+    / .chat-footer-input__right
+    /   %input{ type:"submit" , placeholder: "type a text", value: "send" }

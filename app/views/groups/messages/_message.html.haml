@@ -1,0 +1,9 @@
+%ul
+  %li
+    .chat-main-message-title
+      %p.chat-main-message-title__name
+        = current_user.name
+      %p.chat-main-message-title__time
+        = message.created_at
+      %p.chat-main-message-title__message
+        = message.body
