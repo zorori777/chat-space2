@@ -3,6 +3,7 @@
     %p.chat-group__name
       = group.name
     %p.chat-group__message
-      = group.messages.last.body unless group.messages.empty?
+      = group.messages.first.try(:body)
+
 
 

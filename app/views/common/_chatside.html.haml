@@ -8,4 +8,4 @@
       = link_to new_group_path, class: "chat-side-user-right" do
         %i.fa.fa-pencil-square-o
   %ul.chat-side-group
-    = render partial: 'group', locals: { group: @group }
+    = render partial: 'group', collection: @groups, as: 'group'
