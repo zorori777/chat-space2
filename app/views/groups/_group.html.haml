@@ -3,7 +3,4 @@
     %p.chat-group__name
       = group.name
     %p.chat-group__message
-      = group.messages.first.try(:body)
-
-
-
+      = group.messages.last.try(:body)

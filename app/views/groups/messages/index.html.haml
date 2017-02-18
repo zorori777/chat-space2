@@ -10,7 +10,7 @@
     .chat-header--right
       = link_to 'Edit', edit_group_path(@group)
   %ul.chat-main-message
-    =render @messages
+    = render @messages
   .chat-footer-input
   = form_for [ @group, @message ] do |f|
     .chat-group-form__field.clearfix
@@ -20,16 +20,3 @@
       %i.fa.fa-image
       .chat-group-form__field--right
         = f.submit "Send"
-
-    / .chat-footer-input__left
-    /   = f.text_area :body, placefolder: "Type a message"
-    / .chat-footer-input__center
-    /   %i.fa.fa-image
-    / .chat-footer-input__right
-    /   = f.submit value: "Send", name: "commit", disable: "save"
-
-    /   %textarea{ placeholder:"Type a message" }
-
-    /   %i.fa.fa-image
-    / .chat-footer-input__right
-    /   %input{ type:"submit" , placeholder: "type a text", value: "send" }
