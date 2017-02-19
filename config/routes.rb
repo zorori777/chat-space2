@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'groups#index'
   resources :groups, except: %i( destroy ) do
     scope module: 'groups' do
-      resources :messages, only: %i( index )
+      resources :messages, only: %i( index create )
     end
   end
   resources :users, only: %i( edit update)
