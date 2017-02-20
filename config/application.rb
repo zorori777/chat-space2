@@ -13,7 +13,7 @@ module ChatSpace
         g.helper false
         g.assets false
 
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
    end
   end
 end
