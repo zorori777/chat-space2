@@ -1,7 +1,8 @@
 require 'rails_helper'
 
     describe Message do
-      describe '#create' do
+      describe 'message-send' do
+
         it "is valid a message-body" do
         message = build(:message)
         expect(message).to be_valid
