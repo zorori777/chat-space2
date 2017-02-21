@@ -13,6 +13,22 @@ require 'rails_helper'
         message.valid?
         expect(message.errors[:body]).to include("を入力してください")
     end
+
+      describe 'message-group-Assosiation' do
+        it "belongs_to group " do
+        assc = described_class.reflect_on_association(:group)
+        expect(assc.macro).to eq :belongs_to
+        # expect
+     end
+   end
+
+     describe 'message-user-Assosiation' do
+      it "belongs_to user " do
+        assc = described_class.reflect_on_association(:user)
+        expect(assc.macro).to eq :belongs_to
+    end
   end
+
+ end
 end
 
