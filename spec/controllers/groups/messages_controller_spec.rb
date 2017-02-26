@@ -38,7 +38,7 @@ describe Groups::MessagesController do
 
     it "reditects to sign_up_path" do
       get :index, params: { group_id: group, user_id: user }
-      expect(response).to redirect_to  new_user_session_path
+      expect(response).to redirect_to new_user_session_path
     end
   end
 
@@ -56,17 +56,25 @@ describe Groups::MessagesController do
       }.to change(Message, :count).by(1)
     end
 
+    it "flashes a notice save_message" do
+      post :create, group_id: group, message: attributes_for(:message)
+      expect(flash[:notice]).to include ("作成成功しました")
+    end
+
     it "redirects to messages #index" do
       post :create, group_id: group, message: attributes_for(:message)
-      expect(flash[:notice]).to be_present
       expect(response).to redirect_to group_messages_path
+    end
+
+    it "flashes a alert unsave_message" do
+      post :create, group_id: group, message: attributes_for(:message,body: "", group_id: group)
+      expect(flash[:alert] ). to include ("作成を失敗しました")
     end
 
     it "not save messaege in the database and render index_" do
       post :create, group_id: group, message: attributes_for(:message,body: "", group_id: group)
-      expect(flash[:alert]).to be_present
       expect(response).to render_template(:index)
     end
 
-  end
+ end
 end
