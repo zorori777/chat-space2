@@ -18,7 +18,6 @@ describe Groups::MessagesController do
    end
 
     it "assigns the requested message to @message" do
-      message = build(:message)
       expect(assigns(:message)).to be_a_new(Message)
     end
 
@@ -37,11 +36,12 @@ describe Groups::MessagesController do
 
   context "logout user" do
 
-    it "is not sigh in in the chat-space" do
-      get :index, params: { group_id: group.id, user_id: user.id }
+    it "reditects to sign_up_path" do
+      get :index, params: { group_id: group, user_id: user }
       expect(response).to redirect_to  new_user_session_path
     end
   end
+
  end
 
  describe 'POST #create' do
@@ -52,18 +52,21 @@ describe Groups::MessagesController do
 
     it "saves the new message in the database" do
       expect{
-      post :create,group_id:group.id, message: attributes_for(:message)
+      post :create, group_id:group, message: attributes_for(:message)
       }.to change(Message, :count).by(1)
     end
 
     it "redirects to messages #index" do
-      post :create, group_id: group.id, message: attributes_for(:message)
+      post :create, group_id: group, message: attributes_for(:message)
+      expect(flash[:notice]).to be_present
       expect(response).to redirect_to group_messages_path
     end
 
     it "not save messaege in the database and render index_" do
-      post :create, group_id: group, message: attributes_for(:message,body: "", group_id: group.id)
+      post :create, group_id: group, message: attributes_for(:message,body: "", group_id: group)
+      expect(flash[:alert]).to be_present
       expect(response).to render_template(:index)
     end
+
   end
 end
