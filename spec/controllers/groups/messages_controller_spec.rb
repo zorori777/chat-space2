@@ -45,7 +45,6 @@ describe Groups::MessagesController do
       end
    end
 
-
    context 'POST #create' do
 
       it "saves the new message in the database" do

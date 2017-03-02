@@ -11,12 +11,15 @@
       = link_to 'Edit', edit_group_path(@group)
   %ul.chat-main-message
     = render @messages
-  .chat-footer-input
-  = form_for [ @group, @message ] do |f|
-    .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-        = f.text_area :body, placefolder: "Type a message"
-      .chat-group-form__field__center
-        %i.fa.fa-image
-      .chat-group-form__field--right
-        = f.submit "Send"
+  .chat-main-input
+  = form_for [@group, @message] do |f|
+    .chat-main-input__left
+      = f.text_field :body, class: 'chat-main-input__left', placeholder: 'Type a message'
+    .chat-main-input__center
+      = fa_icon 'picture-o', class: 'center_tag'
+    .chat-main-input__right
+      = f.submit '送信', class: 'chat-main-input__right'
+
+
+
+

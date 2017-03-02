@@ -1,53 +1,58 @@
-.chat-footer-input {
-  position: relative;
-  left: -97px;
-  bottom: 0;
-  padding: 20px 40px;
-  background-color: #ddd;
-  height: 50px;
-  float: right;
-  &__left {
+.chat-main-input {
+  @include clearfix;
+  height: 90px;
+  background-color: #999;
+  padding: 0px 40px;
+
+  &__left{
+    float: left;
     border: none;
-   textarea {
-    width: 952px;
+    position: relative;
+    left: 13px;
+    top: -26px;
+  }
+
+  &__center {
+    height: 50px;
+    color: black;
+    float: left;
+    background-color: white;
+    line-height: 50px;
+    padding-right: 10px;
+
+  .center_tag{
+    position: relative;
+    left: 862px;
+    top: -64px;
+   }
+  }
+
+  &__right{
+    float: right;
+    position: relative;
+    left:  -9px;
+    top: -26px;
+  }
+
+  form {
+    padding-top: 20px;
+  }
+
+  .input_message {
+    width:767px;
     height: 50px;
     border :none;
     resize: none;
     font-size: 16px;
     line-height: 50px;
     padding-left: 10px;
-   }
   }
 
-  &__center {
+  .send-botton {
+    color: white;
+    background-color: blue;
     height: 50px;
-    color: black;
-    line-height: 50px;
-    padding-right: 10px;
-    position: absolute;
-    left: 885px;
-    top: 20px;
-    margin-right: 10px
-  }
-
-  &__right {
-    position: absolute;
-    left: 127px;
-    top: 45px;
-  }
-
-  .form {
-    padding-top: 20px;
-  }
-
-  input {
-    color: $whitest;
-    background-color: #38AEF0;
-    height: 50px;
+    width:80px;
     border: none;
-    width: 84px;
-    position: absolute;
-    left: 791px;
-    top: -25px;
   }
 }
