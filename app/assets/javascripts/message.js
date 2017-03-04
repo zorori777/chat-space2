@@ -1,16 +1,16 @@
 $(function() {
-  function buildHTML(messages) {
-    var html = `<li class = "chat-main-message-title">
+  function buildHTML(message) {
+    var html = `<div class = "chat-main-message-title">
                   <p class = "chat-main-message-title__name">
-                    \${message.name}
+                    ${message.name}
                   </p>
                   <p class = "chat-main-message-title__time">
-                    \${message.creaed_at}
+                    ${message.time}
                   </p>
                   <p class = "chat-main-message-title__message">
-                    \${message.body}
+                    ${message.body}
                   </p>
-                </li>`
+                </div>`;
     return html;
 
   }
@@ -31,12 +31,12 @@ $(function() {
     })
     .done(function(date) {
       var html = buildHTML(date);
-      $(`.chat-main-message-title`).append(html);
-      textField.val('');
+      $(`.chat-main-message`).append(html);
+      $(`#clean_form`)[0].reset();
     })
     .fail(function() {
       alert('だめよ');
-      return false
     });
+  return false
   });
 });
