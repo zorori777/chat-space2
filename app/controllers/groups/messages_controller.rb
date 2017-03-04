@@ -12,10 +12,12 @@ class Groups::MessagesController < GroupsController
   def create
     @message = current_user.messages.new(create_message)
       if @message.save
-         redirect_to group_messages_path(@group), notice: "作成成功しました"
+        respond_to do |format|
+          format.html { redirect_to group_messages_path(@group) }
+          format.json { render json: @message }
+        end
       else
-         flash.now[:alert] = "作成を失敗しました"
-         render :index
+         render :index, alert: "作成を失敗しました"
       end
   end
 
