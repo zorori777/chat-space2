@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(message) {
-    var html = $('<p class = "chat-main-message-title__name">'
+    var html = ('<p class = "chat-main-message-title__name">'
       , '<p class = "chat-main-message-title__time">', '<P class = "chat-main-message-title__message">').append(message.content);
     return html;
   }
@@ -9,11 +9,9 @@ $(function() {
     e.preventDefault();
     var textField = $('.js-form__chat-main-input__left');
     var message = textField.val();
-      console.log(message);
-    
     $.ajax({
       type: 'POST',
-      url: '/groups/:group_id/messages.json',
+      url: './messages.json',
       data: {
         message: {
           content: message
