@@ -35,7 +35,7 @@ $(function() {
       $(`#clean_form`)[0].reset();
     })
     .fail(function() {
-      alert('だめよ');
+      alert("帰りなさい");
     });
   return false
   });
