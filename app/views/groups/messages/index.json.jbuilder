@@ -1,4 +1,4 @@
-json.@message do |json|
+json_escape @message do |json|
   json.id @message.id
   json.body @message.body
   json.image @message.image

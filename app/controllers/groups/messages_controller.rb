@@ -14,7 +14,7 @@ class Groups::MessagesController < GroupsController
       if @message.save
         respond_to do |format|
           format.html { redirect_to group_messages_path(@group) }
-          format.json {}
+          format.json
         end
       else
          render :index, alert: "作成を失敗しました"

@@ -1,7 +1,7 @@
 $(function() {
   function buildHTML(message) {
     var html = ('<p class = "chat-main-message-title__name">'
-      , '<p class = "chat-main-message-title__time">', '<P class = "chat-main-message-title__message">').append(message.content);
+      , '<p class = "chat-main-message-title__time">', '<p class = "chat-main-message-title__message">')
     return html;
   }
 
@@ -14,19 +14,20 @@ $(function() {
       url: './messages.json',
       data: {
         message: {
-          content: message
+          body: message
         }
       },
       dataType: 'json'
     })
     .done(function(date) {
       var html = buildHTML(date);
-      $('.chat-main-message-title__name', '.chat-main-message-title__time',
-        '.chat-main-message-title__message').append(html);
+      $('p.chat-main-message-title__name', 'p.chat-main-message-title__time',
+        'p.chat-main-message-title__message').append(html);
       textField.val('');
     })
     .fail(function() {
       alert('だめよ');
+      return false
     });
   });
 });
