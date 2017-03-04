@@ -1,8 +1,18 @@
 $(function() {
   function buildHTML(message) {
-    var html = ('<p class = "chat-main-message-title__name">'
-      , '<p class = "chat-main-message-title__time">', '<p class = "chat-main-message-title__message">')
+    var html = '<div class = "chat-main-message-title">'
+                  '<p class = "chat-main-message-title__name">'
+                    message.name
+                  '</p>'
+                  '<p class = "chat-main-message-title__time">'
+                    message.created_at.strftime('%Y年%m月%d日 %H:%M')
+                  '</p>'
+                  '<p class = "chat-main-message-title__message">'
+                    message.body
+                  '</p>'
+                '<div>'
     return html;
+
   }
 
   $('.js-form').on('submit', function(e) {
@@ -21,8 +31,7 @@ $(function() {
     })
     .done(function(date) {
       var html = buildHTML(date);
-      $('p.chat-main-message-title__name', 'p.chat-main-message-title__time',
-        'p.chat-main-message-title__message').append(html);
+      $('.chat-main-message-title').append(html);
       textField.val('');
     })
     .fail(function() {
