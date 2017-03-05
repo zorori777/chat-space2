@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :user_setting
+  before_action :user_setting, except: :search
 
   def edit
   end
@@ -14,16 +14,15 @@ class UsersController < ApplicationController
     end
   end
 
-   def search
-    @users = User.where('name LIKE(?)',"%#{search_params[:keyword]}%").order('name ASC').limit(20)
-
+  def search
+    @users = User.where('title LIKE(?)', "%#{params[:keyword]}%").order(name: :asc)
     respond_to do |format|
-      format.html
       format.json
     end
+
   end
 
-  private
+ private
 
   def update_params
     params.require(:user).permit(:name, :email,:password, :current_password, :password_comfirmation)
