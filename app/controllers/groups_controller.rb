@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.users << current_user
+    @user = User.new
   end
 
   def create
@@ -34,7 +34,6 @@ class GroupsController < ApplicationController
     end
   end
 
-
   private
 
   def create_params
@@ -43,6 +42,10 @@ class GroupsController < ApplicationController
 
   def setting_group
     @group = Group.find(params[:id])
+  end
+
+  def search_params
+    params.permit(:keyword)
   end
 
 end
