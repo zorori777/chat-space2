@@ -1,1 +1,3 @@
-json.name @users.name
+json.users @users.each do |user|
+   json.name user.name
+ end
