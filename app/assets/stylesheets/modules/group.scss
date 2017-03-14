@@ -2,8 +2,6 @@
   width: 980px;
   margin: 60px auto;
   padding: 40px;
-  background-color: #fafafa;
-  border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
   height: 361px;
@@ -54,6 +52,28 @@
     .chat-group-form__field--right {
       float: right;
       width: 70%;
+
+      .chat-group-user__name {
+        border-bottom: 1px solid #ddd;
+      }
+      .chat-group-user__add-button {
+        color: #38aef0;
+        position: relative;
+        top: -23px;
+        left: 593px;
+      }
+
+      .chat-group-user__delete-button {
+        color: #f05050;
+        position: relative;
+        top: -23px;
+        left: 593px;
+      }
+
+      p {
+         padding: 8px;
+         border-bottom: 1px solid #ddd;
+      }
     }
 
     .chat-group-form__label {
@@ -75,33 +95,24 @@
   .chat-group-user {
     padding: 0 15px;
     line-height: 50px;
-    font-size: 14px;
-    border-bottom: 1px solid #ddd;
+    font-size: 24px;
 
-    .chat-group-user__name {
-      float: left;
-    }
 
     .chat-group-user__btn {
       float: right;
       display: inline-block;
       cursor: pointer;
+      margin: 15px;
 
-      &.chat-group-user__btn--add {
-        color: #38aef0;
-      }
-
-      &.chat-group-user__btn--remove {
-        color: #f05050;
-      }
     }
   }
 
   .chat-group-form__action-btn {
     display: inline-block;
-    padding: 12px 20px;
     color: $whitest;
     background-color: #38aef0;
     border: 0;
+    margin-top: 14px;
+    padding: 12px 20px;
   }
 }

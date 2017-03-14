@@ -23,11 +23,15 @@
 
 .chat-header--right {
   float: right;
-  height: 40px;
-  color: blue;
+  color: white;
   margin-top: 35px;
+  background-color: #38aef0;
+  height: 50px;
+  width:80px;
+  border: none;
+
   &__edit {
-    color: #38aef0;
+    color: white;
     border: solid 2px;
     padding:10px 20px;
     text-align: center;

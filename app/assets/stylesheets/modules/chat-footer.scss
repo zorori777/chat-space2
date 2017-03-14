@@ -23,7 +23,7 @@
   .center_tag{
     position: relative;
     top: -64px;
-    right: -850px;
+    right: -611px;
    }
   }
 
@@ -32,6 +32,16 @@
     position: relative;
     left:  -9px;
     top: -26px;
+
+    .submitbox{
+      color: white;
+      background-color: #38aef0;
+      height: 50px;
+      width:80px;
+      border: none;
+      position: relative;
+      top: -43px;
+    }
   }
 
   form {
@@ -48,11 +58,4 @@
     padding-left: 10px;
   }
 
-  .send-botton {
-    color: white;
-    background-color: blue;
-    height: 50px;
-    width:80px;
-    border: none;
-  }
 }
