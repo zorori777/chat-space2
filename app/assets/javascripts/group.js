@@ -1,45 +1,71 @@
-$(window).on('load', function() {
-  var
-  preFunc = null,
-  preinput = '',
-  input = '',
+$(document).on('turbolinks:load', function() {
 
-  ajaxSearch = function(){
-    $.ajax({
-     type: 'GET',
-     url: '/users/search.json',
-     data: { keyword: input
-     },
-      dataType: 'json'
-     })
 
-    .done(function(data) {
-      var users = data.users;
-      user = buildHTML(users)
-      })
+  function buildSearchedUserHTML(user) {
+    var html =
+      `<div class="chat-group-form__field--right">
+        <a id = "user" hidden ="${user.id}" name ="user_name" ></a>
 
-    .fail(function() {
-    alert('帰れ');
-    });
+        <p class="chat-group-user__name">
+          ${user.name}
+        </p>
+
+        <a class="chat-group-user__add-button" data-user_id="
+            ${user.id}"
+           data-user_name="${user.name}">追加</a>
+      </div>`
+    return html;
   }
 
-  function buildHTML(users) {
-    var list = $("#users_list");
+  function buildAddedUserHTML(name, id) {
+    var html =
+      `<div class="chat-group-form__field--right">
+        <input type="hidden" name="group[user_ids][]" value=" ${id} ">
+        <p class="chat-group-user__name">
+          ${name}
+        </p>
+          <a class="chat-group-user__delete-button">削除</a>
+      </div>`
+    return html;
+  }
 
-    $.each(users, function(i, user) {
-      var item = $('<li class="users_name">').append(user.name);
-        list.append(item);
-    });
-    preinput = $(".js-form__incre-form").val();
-  };
-
- $('.js-form__incre-form').on('keyup', function(e) {
-  input = $.trim($(this).val());   //前後の不要な空白を削除
-    if(preinput !== input){
-      clearTimeout(preFunc);
-      preFunc = setTimeout(ajaxSearch(input), 500);
-    }
-    preinput = input;
-    $(".users_name").remove();
+  $('#user-search-field').keyup(function() {
+    word = $('#user-search-input').val();
+    var preword;
+    $.ajax({
+      type: 'GET',
+      url: '/users/search.json',
+      data: { keyword: word },
+      dataType: 'json'
+    })
+    .done(function(data) {
+        var inHTML = "";
+        var users = data.users
+      if (word.length !== 0 ){
+        $.each (users, function(i, user){
+          inHTML += buildSearchedUserHTML(user);
+        });
+      };
+        $('#user-search-result').html(inHTML);
+    })
+    .fail(function(data) {
+      alert('エラーが発生しました');
+    })
   });
-});
+
+  $('#user-search-result').on('click', '.chat-group-user__add-button',function() {
+    var user = $(this);
+    var name = user.data('user_name');
+    var id = user.data('user_id');
+    var inHTML = buildAddedUserHTML(name, id);
+    $('#user-add-list').append(inHTML);
+      user.parent('.chat-group-form__field--right').remove();
+    });
+
+  $('#user-add-list').on('click', '.chat-group-user__delete-button',function(){
+    var user = $(this);
+    var id = user.data('user_id');
+    user.parent('.chat-group-form__field--right').remove();
+    })
+  });
+
