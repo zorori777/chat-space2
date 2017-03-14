@@ -1,7 +1,6 @@
 .chat-group-form
   %h1 新規チャットグループ
-  = render partial: 'form', locals: { group: @group, user: @users }
-  %ul.user_lists
-  = render partial: 'user_list', locals: { user: @user }
+  = render partial: 'form', locals: { group: @group }
+
 
 
