@@ -14,12 +14,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
-
-
   def search
     @users = User.where('name LIKE(?)', "#{params[:keyword]}%").order(name: :asc)
     respond_to do |format|
