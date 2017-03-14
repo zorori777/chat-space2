@@ -53,18 +53,16 @@ $(document).on('turbolinks:load', function() {
   });
 
   $('#user-search-result').on('click', '.chat-group-user__add-button',function() {
-    var $user = $(this);
-    var name = $user.data('user_name');
-    var id = $user.data('user_id');
-    var responseHTML = buildAddedUserHTML(name, id);
+      var $user = $(this);
+      var name = $user.data('user_name');
+      var id = $user.data('user_id');
+      var responseHTML = buildAddedUserHTML(name, id);
     $('#user-add-list').append(responseHTML);
       $user.parent('.chat-group-form__field--right').remove();
-    });
+  });
 
   $('#user-add-list').on('click', '.chat-group-user__delete-button',function(){
-    var $user = $(this);
-    var id = $user.data('user_id');
-    $user.parent('.chat-group-form__field--right').remove();
+      $(this).parent('.chat-group-form__field--right').remove()
     })
   });
 
