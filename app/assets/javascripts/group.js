@@ -31,22 +31,21 @@ $(document).on('turbolinks:load', function() {
 
   $('#user-search-field').keyup(function() {
     word = $('#user-search-input').val();
-    var preword;
     $.ajax({
       type: 'GET',
-      url: '/users/search.json',
+      url: '/users/search',
       data: { keyword: word },
       dataType: 'json'
     })
     .done(function(data) {
-        var inHTML = "";
+        var responseHTML = "";
         var users = data.users
       if (word.length !== 0 ){
         $.each (users, function(i, user){
-          inHTML += buildSearchedUserHTML(user);
+          responseHTML += buildSearchedUserHTML(user);
         });
       };
-        $('#user-search-result').html(inHTML);
+        $('#user-search-result').html(responseHTML);
     })
     .fail(function(data) {
       alert('エラーが発生しました');
@@ -54,18 +53,18 @@ $(document).on('turbolinks:load', function() {
   });
 
   $('#user-search-result').on('click', '.chat-group-user__add-button',function() {
-    var user = $(this);
-    var name = user.data('user_name');
-    var id = user.data('user_id');
-    var inHTML = buildAddedUserHTML(name, id);
-    $('#user-add-list').append(inHTML);
-      user.parent('.chat-group-form__field--right').remove();
+    var $user = $(this);
+    var name = $user.data('user_name');
+    var id = $user.data('user_id');
+    var responseHTML = buildAddedUserHTML(name, id);
+    $('#user-add-list').append(responseHTML);
+      $user.parent('.chat-group-form__field--right').remove();
     });
 
   $('#user-add-list').on('click', '.chat-group-user__delete-button',function(){
-    var user = $(this);
-    var id = user.data('user_id');
-    user.parent('.chat-group-form__field--right').remove();
+    var $user = $(this);
+    var id = $user.data('user_id');
+    $user.parent('.chat-group-form__field--right').remove();
     })
   });
 
