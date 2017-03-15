@@ -1,17 +1,24 @@
-= form_for (group) do |f|
-  .chat-group-form__field.clearfix
+= form_for group do |f|
+  .chat-group-form__field
     .chat-group-form__field--left
-      = f.label 'グループ名', class: 'chat-group-form__label'
+      = f.label 'グループ名', class: 'chat-group-form__label', for: 'chat_group_name'
     .chat-group-form__field--right
-      = f.text_field :name, placeholder: 'グループ名を入力してください', class: 'chat-group-form__input', id: 'chat_group_name'
-  .chat-group-form__field.clearfix
+      = f.text_field :name, class: 'chat-group-form__input', placeholder: 'グループ名を入力してください'
+  .chat-group-form__field
     .chat-group-form__field--left
-      = f.label 'チャットメンバー', class: 'chat-group-form__label'
-    .chat-group-form__field--right
-      = f.collection_check_boxes(:user_ids, User.all, :id, :name)
-  .chat-group-form__field.clearfix
-    .chat-group-form__field--right
-  .chat-group-form__field.clearfix
+      = f.label 'チャットメンバーを追加', class: 'chat-group-form__label', for: 'chat_group_チャットメンバー'
+    #user-search-field.chat-group-form__field--right
+      %input.chat-group-form__input#user-search-input{placeholder: "追加したいユーザー名を入力してください", type: "text"}
+    #user-search-result
+  .chat-group-form__field
     .chat-group-form__field--left
+      = f.label 'チャットメンバー', class: 'chat-group-form__label', for: 'chat_member'
+    .chat-group-form__field--right
+      %p.my__name=current_user.name
+      = hidden_field_tag('group[user_ids][]', current_user.id)
+    %ul#user-add-list
+      = render partial: 'user_lists', collection: group.users, as: 'user'
+      .chat-group-user
+  .chat-group-form__field.clearfix
     .chat-group-form__field--right
       = f.submit 'Save', class: 'chat-group-form__action-btn'

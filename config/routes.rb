@@ -6,5 +6,9 @@ Rails.application.routes.draw do
       resources :messages, only: %i( index create )
     end
   end
-  resources :users, only: %i( edit update)
-end
+  resources :users, only: %i( edit update) do
+    collection do
+      get 'search'
+    end
+  end
+ end
