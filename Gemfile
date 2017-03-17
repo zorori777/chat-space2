@@ -45,6 +45,7 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'devise'
 gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
