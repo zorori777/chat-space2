@@ -12,11 +12,12 @@
   %ul.chat-main-message
     = render @messages
   .chat-main-input
-  = form_for [@group, @message], html: { class: 'form js-form', id: 'clean_form' } do |f|
+  = form_for [@group, @message], html: { id: 'js-form' } do |f|
     .chat-main-input__left
       = f.text_field :body, class: 'chat-main-input__left js-form__chat-main-input__left', placeholder: 'Type a message'
     .chat-main-input__center
-      = fa_icon 'picture-o', class: 'center_tag'
+      = f.label :image, for: "file_image",class: "fa fa-picture-o" do
+        = f.file_field :image, id: "file_image", style: "display:none;"
     .chat-main-input__right
       = f.submit 'SEND', class: 'submitbox'
 
