@@ -22,22 +22,14 @@
 }
 
 .chat-header--right {
-  float: right;
-  color: white;
-  margin-top: 35px;
-  background-color: #38aef0;
-  height: 50px;
-  width:80px;
-  border: none;
-
-  &__edit {
-    color: white;
-    border: solid 2px;
-    padding:10px 20px;
-    text-align: center;
-    position: absolute;
-    left: 813px;
-    top: 28px;
-  }
+    .edit-string {
+      float: right;
+      color: white;
+      margin-top: 35px;
+      background-color: #38aef0;
+      height: 50px;
+      width:80px;
+      text-decoration: none;
+    }
  }
 }
