@@ -18,5 +18,8 @@ CarrierWave.configure do |config|
     when 'production'
         config.fog_directory  = 'takumi-s3'
         config.asset_host = 'https://s3.amazonaws.com/takumi-s3'
+    when 'test'
+        config.storage :file
     end
 end
+
