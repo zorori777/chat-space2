@@ -4,6 +4,10 @@ class Groups::MessagesController < GroupsController
 
   def index
     @message = Message.new
+     respond_to do |format|
+      format.html
+      format.json
+     end
   end
 
   def new
@@ -12,7 +16,7 @@ class Groups::MessagesController < GroupsController
   def create
     @message = current_user.messages.new(create_message)
       if @message.save
-        respond_to do |format|
+          respond_to do |format|
           format.html { redirect_to group_messages_path(@group) }
           format.json
         end

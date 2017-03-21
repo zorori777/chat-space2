@@ -39,6 +39,7 @@ $(document).on('turbolinks:load', function() {
     })
     .done(function(data) {
         var responseHTML = "";
+        console.log(data);
         var users = data.users
       if (word.length !== 0 ){
         $.each (users, function(i, user){

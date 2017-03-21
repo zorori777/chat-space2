@@ -45,4 +45,27 @@ $(function() {
    return false;
   });
 
+  function auto_message(){
+    $.ajax({
+      type:'GET',
+      url:'./messages.json',
+      datatype:'json'
+    })
+
+    .done(function(data){
+      $('.chat-main-message').empty();
+        var auto_message ='';
+        $.each(data.messages, function(i, message){
+           auto_message += buildHTML(message);
+        });
+
+     $('.chat-main-message').append(auto_message);
+    })
+    .fail(function(){
+      alert("もうちょい");
+    })
+  };
+  setInterval(auto_message, 10000);
 });
+
+
