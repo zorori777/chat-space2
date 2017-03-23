@@ -1,8 +1,11 @@
-$(function() {
+$(document).on('turbolinks:load', function(){
   function buildHTML(message) {
-    var uploadImage = '';
+    console.log(message)
+    var uploadImage = "";
       if (message.image) {
         var uploadImage = `<img src="${ message.image}">`;
+      } else{
+        var uploadImage = "";
       }
 
     var html = `<div class = "chat-main-message-title">
@@ -48,24 +51,33 @@ $(function() {
   function auto_message(){
     $.ajax({
       type:'GET',
-      url:'./messages.json',
-      datatype:'json'
+      url:'./messages',
+      dataType:'json'
     })
 
-    .done(function(data){
-      $('.chat-main-message').empty();
-        var auto_message ='';
-        $.each(data.messages, function(i, message){
-           auto_message += buildHTML(message);
-        });
-
-     $('.chat-main-message').append(auto_message);
+    .done(function (data){
+      var updated_message = $('.chat-main-message-title').length;
+      var new_message = data.messages.length;
+      var buildmessage ='';
+        for(var i = updated_message; i < new_message; i++){
+           buildmessage += buildHTML(data.messages[i]);
+        };
+     $('.chat-main-message').append(buildmessage);
     })
     .fail(function(){
       alert("もうちょい");
     })
   };
-  setInterval(auto_message, 10000);
+
+
+  // setInterval(auto_message, 50000);
+  var timer = setInterval(function() {
+    auto_message();
+  }, 5000);
+
+  $(this).on('turbolinks:click', function(){
+    clearInterval(timer);
+  })
 });
 
 
