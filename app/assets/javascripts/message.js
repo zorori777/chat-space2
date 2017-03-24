@@ -1,11 +1,8 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(message) {
-    console.log(message)
     var uploadImage = "";
       if (message.image) {
-        var uploadImage = `<img src="${ message.image}">`;
-      } else{
-        var uploadImage = "";
+        uploadImage = `<img src="${ message.image}">`;
       }
 
     var html = `<div class = "chat-main-message-title">
@@ -69,15 +66,8 @@ $(document).on('turbolinks:load', function(){
     })
   };
 
+  setInterval(auto_message, 10000);
 
-  // setInterval(auto_message, 50000);
-  var timer = setInterval(function() {
-    auto_message();
-  }, 5000);
-
-  $(this).on('turbolinks:click', function(){
-    clearInterval(timer);
-  })
 });
 
 
