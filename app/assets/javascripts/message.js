@@ -45,7 +45,7 @@ $(document).on('turbolinks:load', function(){
    return false;
   });
 
-  function auto_message(){
+  function autoMessage(){
     $.ajax({
       type:'GET',
       url:'./messages',
@@ -53,20 +53,20 @@ $(document).on('turbolinks:load', function(){
     })
 
     .done(function (data){
-      var updated_message = $('.chat-main-message-title').length;
-      var new_message = data.messages.length;
-      var buildmessage ='';
-        for(var i = updated_message; i < new_message; i++){
-           buildmessage += buildHTML(data.messages[i]);
+      var updatedMessage = $('.chat-main-message-title').length;
+      var newMessage = data.messages.length;
+      var buildMessage ='';
+        for(var i = updatedMessage; i < newMessage; i++){
+           buildMessage += buildHTML(data.messages[i]);
         };
-     $('.chat-main-message').append(buildmessage);
+     $('.chat-main-message').append(buildMessage);
     })
     .fail(function(){
       alert("もうちょい");
     })
   };
 
-  setInterval(auto_message, 10000);
+  setInterval(autoMessage, 10000);
 
 });
 
