@@ -4,12 +4,14 @@
   background-color: #999;
   padding: 0px 40px;
 
-  &__left{
+  &__input{
     float: left;
     border: none;
     position: relative;
-    left: 13px;
-    top: -26px;
+    left: 22px;
+    top: -69px;
+    height: 49px;
+    width: 1004px;
   }
 
   &__center {
@@ -19,8 +21,8 @@
     line-height: 50px;
     padding-right: 10px;
     position: relative;
-    top: -64px;
-    left: 588px;
+    top: -68px;
+    left: -15px;
   }
 
   &__right{
@@ -36,7 +38,8 @@
       width:80px;
       border: none;
       position: relative;
-      top: -43px;
+      top: -93px;
+      left: 20px;
     }
   }
 

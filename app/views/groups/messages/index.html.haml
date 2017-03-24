@@ -14,7 +14,7 @@
   .chat-main-input
   = form_for [@group, @message], html: { id: 'js-form' } do |f|
     .chat-main-input__left
-      = f.text_field :body, class: 'chat-main-input__left js-form__chat-main-input__left', placeholder: 'Type a message'
+      = f.text_field :body, class: 'chat-main-input__input', placeholder: 'Type a message'
     .chat-main-input__center
       = f.label :image, for: "file_image",class: "fa fa-picture-o" do
         = f.file_field :image, id: "file_image", style: "display:none;"

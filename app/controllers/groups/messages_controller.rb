@@ -1,9 +1,12 @@
 class Groups::MessagesController < GroupsController
-
   before_action :setting_group, :setting_message, only: [:index, :create]
 
   def index
     @message = Message.new
+     respond_to do |format|
+      format.html
+      format.json
+     end
   end
 
   def new

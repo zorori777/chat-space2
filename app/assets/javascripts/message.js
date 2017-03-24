@@ -1,8 +1,8 @@
-$(function() {
+$(document).on('turbolinks:load', function(){
   function buildHTML(message) {
-    var uploadImage = '';
+    var uploadImage = "";
       if (message.image) {
-        var uploadImage = `<img src="${ message.image}">`;
+        uploadImage = `<img src="${ message.image}">`;
       }
 
     var html = `<div class = "chat-main-message-title">
@@ -45,4 +45,29 @@ $(function() {
    return false;
   });
 
+  function autoMessage(){
+    $.ajax({
+      type:'GET',
+      url:'./messages',
+      dataType:'json'
+    })
+
+    .done(function (data){
+      var updatedMessage = $('.chat-main-message-title').length;
+      var newMessage = data.messages.length;
+      var buildMessage ='';
+        for(var i = updatedMessage; i < newMessage; i++){
+           buildMessage += buildHTML(data.messages[i]);
+        };
+     $('.chat-main-message').append(buildMessage);
+    })
+    .fail(function(){
+      alert("もうちょい");
+    })
+  };
+
+  setInterval(autoMessage, 10000);
+
 });
+
+
