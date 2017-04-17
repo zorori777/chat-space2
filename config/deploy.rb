@@ -10,8 +10,8 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
 set :default_env, {
-  ACCESS_KEY_ID: ENV["ACCESS_KEY_ID"],
-  SECRET_ACCESS_KEY: ENV["SECRET_ACCESS_KEY"]
+   aws_access_key_id: ENV['ACCESS_KEY_ID'],
+    aws_secret_access_key: ENV['SECRET_ACCESS_KEY']
 }
 
 set :ssh_options, auth_methods: ['publickey'],
