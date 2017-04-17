@@ -9,6 +9,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
+set :log_level, :debug
+
 set :default_env, {
    aws_access_key_id: ENV['ACCESS_KEY_ID'],
     aws_secret_access_key: ENV['SECRET_ACCESS_KEY']
