@@ -2,21 +2,21 @@ $(document).on('turbolinks:load', function(){
   function buildHTML(message) {
     var uploadImage = "";
       if (message.image) {
-        uploadImage = `<img src="${ message.image}">`;
+        uploadImage = '<img src="' + message.image + '">';
       }
 
-    var html = `<div class = "chat-main-message-title">
-                  <p class = "chat-main-message-title__name">
-                    ${message.name}
-                  </p>
-                  <p class = "chat-main-message-title__time">
-                    ${message.time}
-                  </p>
-                  <p class = "chat-main-message-title__message">
-                    ${message.body}
-                  </p>
-                    ${uploadImage}
-                </div>`;
+    var html = '<div class = "chat-main-message-title">'
+                  '<p class = "chat-main-message-title__name">'
+                     ' + message.name + '
+                  '</p>'
+                  '<p class = "chat-main-message-title__time">'
+                    ' + message.time + '
+                  '</p>'
+                  '<p class = "chat-main-message-title__message">'
+                     ' + message.body + '
+                  '</p>'
+                     ' + uploadImage + '
+                '</div>';
     return html;
 
   }

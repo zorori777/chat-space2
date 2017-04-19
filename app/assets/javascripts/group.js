@@ -3,29 +3,28 @@ $(document).on('turbolinks:load', function() {
 
   function buildSearchedUserHTML(user) {
     var html =
-      `<div class="chat-group-form__field--right">
-        <a id = "user" hidden ="${user.id}" name ="user_name" ></a>
+      '<div class="chat-group-form__field--right">'
+        '<a id = "user" hidden ="'+ user.id + '" name ="user_name" >''</a>'
 
-        <p class="chat-group-user__name">
-          ${user.name}
-        </p>
+        '<p class="chat-group-user__name">'
+          ' + user.name + '
+        '</p>'
 
-        <a class="chat-group-user__add-button" data-user_id="
-            ${user.id}"
-           data-user_name="${user.name}">追加</a>
-      </div>`
+        '<a class="chat-group-user__add-button" data-user_id="'
+            + user.id + '" data-user_name="' + user.name + ' ">追加</a>'
+      '</div>'
     return html;
   }
 
   function buildAddedUserHTML(name, id) {
     var html =
-      `<div class="chat-group-form__field--right">
-        <input type="hidden" name="group[user_ids][]" value=" ${id} ">
-        <p class="chat-group-user__name">
-          ${name}
-        </p>
-          <a class="chat-group-user__delete-button">削除</a>
-      </div>`
+      '<div class="chat-group-form__field--right">'
+        '<input type="hidden" name="group[user_ids][]" value=" '+ id +' ">'
+        '<p class="chat-group-user__name">'
+          ' + name + '
+        '</p>'
+          '<a class="chat-group-user__delete-button">'削除'</a>'
+      '</div>'
     return html;
   }
 
