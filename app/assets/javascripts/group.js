@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
   function buildSearchedUserHTML(user) {
     var html =
       '<div class="chat-group-form__field--right">'
-        '<a id = "user" hidden ="'+ user.id + '" name ="user_name" >''</a>'
+        '<a id = "user" hidden ="'+ user.id + '" name ="user_name" >' + '</a>' +
 
         '<p class="chat-group-user__name">'
           ' + user.name + '
