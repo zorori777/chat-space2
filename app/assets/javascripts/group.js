@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
         '</p>'
 
         '<a class="chat-group-user__add-button" data-user_id="'
-            + user.id + '" data-user_name="' + user.name + ' ">追加</a>'
+            + user.id + '" data-user_name="' + user.name + ' "> 追加' +  '</a>' +
       '</div>'
     return html;
   }
@@ -23,7 +23,7 @@ $(document).on('turbolinks:load', function() {
         '<p class="chat-group-user__name">'
           ' + name + '
         '</p>'
-          '<a class="chat-group-user__delete-button">'削除'</a>'
+          '<a class="chat-group-user__delete-button">削除' + '</a>' +
       '</div>'
     return html;
   }
