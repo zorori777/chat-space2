@@ -13,7 +13,7 @@ set :log_level, :debug
 
 set :default_env, {
    aws_access_key_id: ENV['ACCESS_KEY_ID'],
-    aws_secret_access_key: ENV['SECRET_ACCESS_KEY']
+   aws_secret_access_key: ENV['SECRET_ACCESS_KEY']
 }
 
 set :ssh_options, auth_methods: ['publickey'],
