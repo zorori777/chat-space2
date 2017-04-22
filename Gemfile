@@ -57,6 +57,7 @@ group :development, :test do
 end
 
 group :production do
+  gem 'faker'
   gem 'unicorn'
   gem 'capistrano'
   gem 'capistrano-rbenv'
